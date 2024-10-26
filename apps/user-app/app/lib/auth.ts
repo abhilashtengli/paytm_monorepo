@@ -12,7 +12,8 @@ export const authOptions = {
           },
           // TODO: User credentials type from next-aut
           async authorize(credentials: any) {
-            // Do zod validation, OTP validation here
+              // Do zod validation, OTP validation here
+                console.log("Received credentials:", credentials);
             const hashedPassword = await bcrypt.hash(credentials.password, 10);
             const existingUser = await db.user.findFirst({
                 where: {
